@@ -1,0 +1,252 @@
+[
+  {
+    "data": {
+      "type": "lambda",
+      "id": "arn:aws:lambda:us-west-2:758325631830:function:Test_withSNS",
+      "region": "us-west-2",
+      "name": "Test_withSNS"
+    }
+  },
+  {
+    "data": {
+      "type": "lambda",
+      "id": "arn:aws:lambda:us-west-2:758325631830:function:auto-turnoff-a665cf10-99f5-11ec-8fc5-0a7e1f31bb99",
+      "region": "us-west-2",
+      "name": "auto-turnoff-a665cf10-99f5-11ec-8fc5-0a7e1f31bb99"
+    }
+  },
+  {
+    "data": {
+      "type": "lambda",
+      "id": "arn:aws:lambda:us-west-2:758325631830:function:stepFunction_getText",
+      "region": "us-west-2",
+      "name": "stepFunction_getText"
+    }
+  },
+  {
+    "data": {
+      "type": "lambda",
+      "id": "arn:aws:lambda:us-west-2:758325631830:function:stepFunction_createNewRequest",
+      "region": "us-west-2",
+      "name": "stepFunction_createNewRequest"
+    }
+  },
+  {
+    "data": {
+      "type": "lambda",
+      "id": "arn:aws:lambda:us-west-2:758325631830:function:CloudDayOne_NewRequest",
+      "region": "us-west-2",
+      "name": "CloudDayOne_NewRequest"
+    }
+  },
+  {
+    "data": {
+      "type": "lambda",
+      "id": "arn:aws:lambda:us-west-2:758325631830:function:CloudDayOne_GetRequestedText",
+      "region": "us-west-2",
+      "name": "CloudDayOne_GetRequestedText"
+    }
+  },
+  {
+    "data": {
+      "type": "lambda",
+      "id": "arn:aws:lambda:us-west-2:758325631830:function:MySfn_ConvertToText",
+      "region": "us-west-2",
+      "name": "MySfn_ConvertToText"
+    }
+  },
+  {
+    "data": {
+      "type": "lambda",
+      "id": "arn:aws:lambda:us-west-2:758325631830:function:CloudDay1_GetText",
+      "region": "us-west-2",
+      "name": "CloudDay1_GetText"
+    }
+  },
+  {
+    "data": {
+      "type": "lambda",
+      "id": "arn:aws:lambda:us-west-2:758325631830:function:MySfn_createNewRequest",
+      "region": "us-west-2",
+      "name": "MySfn_createNewRequest"
+    }
+  },
+  {
+    "data": {
+      "type": "lambda",
+      "id": "arn:aws:lambda:us-west-2:758325631830:function:stepFunction_triggerStepFunction",
+      "region": "us-west-2",
+      "name": "stepFunction_triggerStepFunction"
+    }
+  },
+  {
+    "data": {
+      "type": "lambda",
+      "id": "arn:aws:lambda:us-west-2:758325631830:function:MySfn_triggerStepFunction",
+      "region": "us-west-2",
+      "name": "MySfn_triggerStepFunction"
+    }
+  },
+  {
+    "data": {
+      "type": "lambda",
+      "id": "arn:aws:lambda:us-west-2:758325631830:function:stepFunction_ConvertToText",
+      "region": "us-west-2",
+      "name": "stepFunction_ConvertToText"
+    }
+  },
+  {
+    "data": {
+      "type": "lambda",
+      "id": "arn:aws:lambda:us-west-2:758325631830:function:stepFunction_GetRequestedText",
+      "region": "us-west-2",
+      "name": "stepFunction_GetRequestedText"
+    }
+  },
+  {
+    "data": {
+      "type": "lambda",
+      "id": "arn:aws:lambda:us-west-2:758325631830:function:MySfn_GetRequestedText",
+      "region": "us-west-2",
+      "name": "MySfn_GetRequestedText"
+    }
+  },
+  {
+    "data": {
+      "type": "lambda",
+      "id": "arn:aws:lambda:us-west-2:758325631830:function:CloudDay1_ConvertToText",
+      "region": "us-west-2",
+      "name": "CloudDay1_ConvertToText"
+    }
+  },
+  {
+    "data": {
+      "type": "lambda",
+      "id": "arn:aws:lambda:us-west-2:758325631830:function:MySfn_getText",
+      "region": "us-west-2",
+      "name": "MySfn_getText"
+    }
+  },
+  {
+    "data": {
+      "type": "dynamodb",
+      "id": "ddb:translate",
+      "region": "us-west-2",
+      "name": "translate"
+    }
+  },
+  {
+    "data": {
+      "type": "transcribe",
+      "id": "transcribe",
+      "region": "us-west-2",
+      "name": "transcribe"
+    }
+  },
+  {
+    "data": {
+      "type": "translate",
+      "id": "translate",
+      "region": "us-west-2",
+      "name": "translate"
+    }
+  },
+  {
+    "data": {
+      "id": "stepFunction_getText-ddb:translate",
+      "source": "arn:aws:lambda:us-west-2:758325631830:function:stepFunction_getText",
+      "target": "ddb:translate"
+    }
+  },
+  {
+    "data": {
+      "id": "stepFunction_createNewRequest-ddb:translate",
+      "source": "arn:aws:lambda:us-west-2:758325631830:function:stepFunction_createNewRequest",
+      "target": "ddb:translate"
+    }
+  },
+  {
+    "data": {
+      "id": "CloudDayOne_NewRequest-ddb:translate",
+      "source": "arn:aws:lambda:us-west-2:758325631830:function:CloudDayOne_NewRequest",
+      "target": "ddb:translate"
+    }
+  },
+  {
+    "data": {
+      "id": "CloudDayOne_GetRequestedText-ddb:translate",
+      "source": "arn:aws:lambda:us-west-2:758325631830:function:CloudDayOne_GetRequestedText",
+      "target": "ddb:translate"
+    }
+  },
+  {
+    "data": {
+      "id": "MySfn_ConvertToText-ddb:translate",
+      "source": "arn:aws:lambda:us-west-2:758325631830:function:MySfn_ConvertToText",
+      "target": "ddb:translate"
+    }
+  },
+  {
+    "data": {
+      "id": "CloudDay1_GetText-ddb:translate",
+      "source": "arn:aws:lambda:us-west-2:758325631830:function:CloudDay1_GetText",
+      "target": "ddb:translate"
+    }
+  },
+  {
+    "data": {
+      "id": "MySfn_createNewRequest-ddb:translate",
+      "source": "arn:aws:lambda:us-west-2:758325631830:function:MySfn_createNewRequest",
+      "target": "ddb:translate"
+    }
+  },
+  {
+    "data": {
+      "id": "stepFunction_ConvertToText-ddb:translate",
+      "source": "arn:aws:lambda:us-west-2:758325631830:function:stepFunction_ConvertToText",
+      "target": "ddb:translate"
+    }
+  },
+  {
+    "data": {
+      "id": "stepFunction_GetRequestedText-ddb:translate",
+      "source": "arn:aws:lambda:us-west-2:758325631830:function:stepFunction_GetRequestedText",
+      "target": "ddb:translate"
+    }
+  },
+  {
+    "data": {
+      "id": "MySfn_GetRequestedText-ddb:translate",
+      "source": "arn:aws:lambda:us-west-2:758325631830:function:MySfn_GetRequestedText",
+      "target": "ddb:translate"
+    }
+  },
+  {
+    "data": {
+      "id": "CloudDay1_ConvertToText-ddb:translate",
+      "source": "arn:aws:lambda:us-west-2:758325631830:function:CloudDay1_ConvertToText",
+      "target": "ddb:translate"
+    }
+  },
+  {
+    "data": {
+      "id": "MySfn_getText-ddb:translate",
+      "source": "arn:aws:lambda:us-west-2:758325631830:function:MySfn_getText",
+      "target": "ddb:translate"
+    }
+  },
+  {
+    "data": {
+      "id": "arn:aws:lambda:us-west-2:758325631830:function:stepFunction_ConvertToText-transcribe",
+      "source": "arn:aws:lambda:us-west-2:758325631830:function:stepFunction_ConvertToText",
+      "target": "transcribe"
+    }
+  },
+  {
+    "data": {
+      "id": "arn:aws:lambda:us-west-2:758325631830:function:stepFunction_getText-translate",
+      "source": "arn:aws:lambda:us-west-2:758325631830:function:stepFunction_getText",
+      "target": "translate"
+    }
+  }
+]

@@ -1,0 +1,244 @@
+<!DOCTYPE >
+
+<html>
+  <head>
+    <title>cytoscape-dagre.js demo</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1"
+    />
+
+    <script src="https://unpkg.com/cytoscape/dist/cytoscape.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <!-- for testing with local version of cytoscape.js -->
+    <!--<script src="../cytoscape.js/build/cytoscape.js"></script>-->
+
+    <!-- dagre -->
+    <script src="https://unpkg.com/dagre@0.7.4/dist/dagre.js"></script>
+    <script src="cytoscape-dagre.js"></script>
+    <!-- klay -->
+    <script src="https://unpkg.com/klayjs@0.4.1/klay.js"></script>
+    <script src="https://unpkg.com/cytoscape-klay@3.1.2/cytoscape-klay.js"></script>
+  </head>
+
+  <body>
+    <!-- nav -->
+    <div class="page-wrapper chiller-theme toggled">
+      <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
+        <i class="fas fa-bars fa-2x"></i>
+      </a>
+      <!-- sidebar -->
+      <nav id="sidebar" class="sidebar-wrapper">
+        <div class="sidebar-content">
+          <div class="sidebar-brand">
+            <a href="#">ClouDay1</a>
+            <div id="close-sidebar">
+              <i class="fas fa-times"></i>
+            </div>
+          </div>
+          <div class="sidebar-menu">
+            <ul>
+              <li class="sidebar-dropdown">
+                <a href="#">
+                  <i class="fa fa-tachometer-alt"></i>
+                  <span>Dashboard</span>
+                  <!-- <span class="badge badge-pill badge-warning">New</span> -->
+                </a>
+                <div class="sidebar-submenu">
+                  <ul>
+                    <li>
+                      <a href="#"
+                        >Support Services
+                        <!-- <span class="badge badge-pill badge-success">Pro</span> -->
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">FAQ</a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="sidebar-dropdown">
+                <a href="#">
+                  <i class="fa fa-coins"></i>
+                  <span>Billing</span>
+                  <!-- <span class="badge badge-pill badge-danger">3</span> -->
+                </a>
+                <div class="sidebar-submenu">
+                  <ul>
+                    <li>
+                      <a href="#">Products </a>
+                    </li>
+                    <li>
+                      <a href="#">Orders</a>
+                    </li>
+                    <li>
+                      <a href="#">Credit cart</a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="sidebar-dropdown">
+                <a href="#">
+                  <i class="fa fa-globe"></i>
+                  <span>Automation</span>
+                </a>
+                <div class="sidebar-submenu">
+                  <ul>
+                    <li>
+                      <a href="#">General</a>
+                    </li>
+                    <li>
+                      <a href="#">Panels</a>
+                    </li>
+                    <li>
+                      <a href="#">Tables</a>
+                    </li>
+                    <li>
+                      <a href="#">Icons</a>
+                    </li>
+                    <li>
+                      <a href="#">Forms</a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <!-- <li class="sidebar-dropdown">
+                <a href="#">
+                  <i class="fa fa-chart-line"></i>
+                  <span>Charts</span>
+                </a>
+                <div class="sidebar-submenu">
+                  <ul>
+                    <li>
+                      <a href="#">Pie chart</a>
+                    </li>
+                    <li>
+                      <a href="#">Line chart</a>
+                    </li>
+                    <li>
+                      <a href="#">Bar chart</a>
+                    </li>
+                    <li>
+                      <a href="#">Histogram</a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="sidebar-dropdown">
+                <a href="#">
+                  <i class="fa fa-globe"></i>
+                  <span>Maps</span>
+                </a>
+                <div class="sidebar-submenu">
+                  <ul>
+                    <li>
+                      <a href="#">Google maps</a>
+                    </li>
+                    <li>
+                      <a href="#">Open street map</a>
+                    </li>
+                  </ul>
+                </div>
+              </li> -->
+            </ul>
+          </div>
+          <!-- sidebar-menu  -->
+        </div>
+        <!-- sidebar-content  -->
+        <div class="sidebar-footer">
+          <a href="#">
+            <i class="fa fa-bell"></i>
+            <span class="badge badge-pill badge-warning notification">3</span>
+          </a>
+          <a href="#">
+            <i class="fa fa-envelope"></i>
+            <span class="badge badge-pill badge-success notification">7</span>
+          </a>
+          <a href="#">
+            <i class="fa fa-cog"></i>
+            <span class="badge-sonar"></span>
+          </a>
+          <!-- <a href="#">
+            <i class="fa fa-power-off"></i>
+          </a> -->
+        </div>
+      </nav>
+      <!-- sidebar-sub -->
+      <nav id="sidebar-sub" class="sidebar-sub-wrapper">
+        <div class="sidebar-content">
+          <div class="sidebar-brand">
+            <!-- <a href="#">ClouDay1</a> -->
+            <div id="close-sidebar">
+              <i class="fas fa-times"></i>
+            </div>
+          </div>
+          <div class="sidebar-detail">
+            <h3 id="dataType" class="dataType"></h3>
+            <ul id="sidebar-menu" class="sidebar-menu"></ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- page-content" -->
+      <main class="page-content">
+        <div class="d-flex py-3 mb-2">
+          <h1>Architecture</h1>
+          <select class="form-select" aria-label=".form-select-sm example">
+            <option selected disabled>Choose a Resource Group</option>
+            <option value="1">translate</option>
+            <option value="2">Usesns</option>
+            <option value="3">AppManager-CFN-Test</option>
+          </select>
+          <button type="button" class="btn-refresh ms-4">
+            <i class="bi bi-arrow-clockwise"></i>
+          </button>
+        </div>
+        <div id="cy" class="cy">
+          <!-- <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Modal title</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p>Modal body text goes here.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div> -->
+        </div>
+      </main>
+    </div>
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="./src/data.js"></script>
+    <script src="./src/navbar.js"></script>
+
+  </body>
+</html>

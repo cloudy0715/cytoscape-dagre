@@ -1,0 +1,28 @@
+{
+    "nodes": [
+      { "data": { "id": "Cognito" } },
+      { "data": { "id": "S3" } },
+      { "data": { "id": "Apigateway" } },
+      { "data": { "id": "Lambda_trigger" } },
+      { "data": { "id": "Lambda_getrequest" } },
+      { "data": { "id": "Stepfunction" } },
+      { "data": { "id": "Lambda_creatnewrequest", "parent": "Stepfunction" } },
+      { "data": { "id": "Lambda_converttotext", "parent": "Stepfunction" } },
+      { "data": { "id": "Lambda_translatetext", "parent": "Stepfunction" } },
+      { "data": { "id": "Translate", "parent": "Stepfunction" } },
+      { "data": { "id": "Transcribe", "parent": "Stepfunction" } },
+      { "data": { "id": "DynamoDB" } }
+    ],
+    "edges": [
+      { "data": { "id": "CognitoS3", "source": "Cognito", "target": "S3" } },
+      { "data": { "id": "ApigatewayLambda", "source": "Apigateway", "target": "Lambda_trigger" } },
+      { "data": { "id": "ApigatewayLambda_getrequest", "source": "Apigateway", "target": "Lambda_getrequest" } },
+      { "data": { "id": "Lambda_triggerStepfunction", "source": "Lambda_trigger", "target": "Stepfunction" } },
+      { "data": { "id": "Lambda_creatnewrequestDynamoDB", "source": "Lambda_creatnewrequest", "target": "DynamoDB" } },
+      { "data": { "id": "Lambda_converttotextTranscribe", "source": "Lambda_converttotext", "target": "Transcribe" } },
+      { "data": { "id": "Lambda_converttotextS3", "source": "Lambda_converttotext", "target": "S3" } },
+      { "data": { "id": "Lambda_converttotextDynamoDB", "source": "Lambda_converttotext", "target": "DynamoDB" } },
+      { "data": { "id": "Lambda_translatetextDynamoDB", "source": "Lambda_translatetext", "target": "DynamoDB" } },
+      { "data": { "id": "Lambda_translatetextTranslate", "source": "Lambda_translatetext", "target": "Translate" } }
+    ]
+}

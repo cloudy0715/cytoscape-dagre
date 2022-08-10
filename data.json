@@ -1,0 +1,193 @@
+[
+    [
+      {
+          "data": {
+            "type": "API Gateway",
+            "id": "zk0oea00u9",
+            "region": "us-west-2",
+            "name": "step_funcation_API"
+          }
+        },
+      {
+          "data": {
+            "type": "Cognito",
+            "id": "us-west-2:18ec6d79-caab-4c59-9469-94a534661ee1",
+            "region": "us-west-2",
+            "name": "Clouday1"
+          }
+        },
+      {
+        "data": {
+          "type": "Lambda",
+          "id": "arn:aws:lambda:us-west-2:758325631830:function:stepFunction_triggerStepFunction",
+          "region": "us-west-2",
+          "name": "stepFunction_triggerStepFunction"
+        }
+      },
+      {
+        "data": {
+          "type": "Lambda",
+          "id": "arn:aws:lambda:us-west-2:758325631830:function:stepFunction_GetRequestedText",
+          "region": "us-west-2",
+          "name": "stepFunction_GetRequestedText"
+        }
+      },
+      {
+        "data": {
+          "type": "Step_Function",
+          "id": "arn:aws:states:us-west-2:758325631830:stateMachine:lambda",
+          "region": "us-west-2",
+          "name": "Lambda"
+        }
+      },
+      {
+        "data": {
+          "type": "Lambda",
+          "id": "arn:aws:lambda:us-west-2:758325631830:function:stepFunction_getText",
+          "region": "us-west-2",
+          "name": "stepFunction_getText",
+          "parent": "arn:aws:states:us-west-2:758325631830:stateMachine:lambda"
+        }
+      },
+      {
+        "data": {
+          "type": "Lambda",
+          "id": "arn:aws:lambda:us-west-2:758325631830:function:stepFunction_createNewRequest",
+          "region": "us-west-2",
+          "name": "stepFunction_createNewRequest",
+          "parent": "arn:aws:states:us-west-2:758325631830:stateMachine:lambda"
+        }
+      },
+  
+      {
+        "data": {
+          "type": "Lambda",
+          "id": "arn:aws:lambda:us-west-2:758325631830:function:stepFunction_ConvertToText",
+          "region": "us-west-2",
+          "name": "stepFunction_ConvertToText",
+          "parent": "arn:aws:states:us-west-2:758325631830:stateMachine:lambda"
+        }
+      },
+      {
+        "data": {
+          "type": "S3",
+          "id": "s3:audio-json",
+          "region": "us-west-2",
+          "name": "audio-json"
+        }
+      },
+      {
+        "data": {
+          "type": "DynamoDB",
+          "id": "ddb:translate",
+          "region": "us-west-2",
+          "name": "translate"
+        }
+      },
+      {
+        "data": {
+          "type": "Transcribe",
+          "id": "transcribe",
+          "region": "us-west-2",
+          "name": "Transcribe"
+        }
+      },
+      {
+        "data": {
+          "type": "Translate",
+          "id": "translate",
+          "region": "us-west-2",
+          "name": "Translate"
+        }
+      }
+    ],
+    [
+      {
+          "data": {
+            "id": "apigateway-lambda",
+            "source": "zk0oea00u9",
+            "target": "arn:aws:lambda:us-west-2:758325631830:function:stepFunction_triggerStepFunction"
+          }
+        },
+        {
+          "data": {
+            "id": "lambda-stepfunction",
+            "source": "arn:aws:lambda:us-west-2:758325631830:function:stepFunction_triggerStepFunction",
+            "target": "arn:aws:states:us-west-2:758325631830:stateMachine:lambda"
+          }
+        },
+      {
+          "data": {
+            "id": "cognito-s3:audio-json",
+            "source": "us-west-2:18ec6d79-caab-4c59-9469-94a534661ee1",
+            "target": "s3:audio-json"
+          }
+        },
+      {
+        "data": {
+          "id": "transcribe-s3:audio-json",
+          "source": "transcribe",
+          "target": "s3:audio-json"
+        }
+      },
+      {
+        "data": {
+          "id": "stepFunction_getText-ddb:translate",
+          "source": "arn:aws:lambda:us-west-2:758325631830:function:stepFunction_getText",
+          "target": "ddb:translate"
+        }
+      },
+      {
+        "data": {
+          "id": "stepFunction_createNewRequest-ddb:translate",
+          "source": "arn:aws:lambda:us-west-2:758325631830:function:stepFunction_createNewRequest",
+          "target": "ddb:translate"
+        }
+      },
+  
+      {
+        "data": {
+          "id": "stepFunction_ConvertToText-ddb:translate",
+          "source": "arn:aws:lambda:us-west-2:758325631830:function:stepFunction_ConvertToText",
+          "target": "ddb:translate"
+        }
+      },
+      {
+        "data": {
+          "id": "stepFunction_GetRequestedText-ddb:translate",
+          "source": "arn:aws:lambda:us-west-2:758325631830:function:stepFunction_GetRequestedText",
+          "target": "ddb:translate"
+        }
+      },
+  
+      {
+        "data": {
+          "id": "arn:aws:lambda:us-west-2:758325631830:function:stepFunction_ConvertToText-transcribe",
+          "source": "arn:aws:lambda:us-west-2:758325631830:function:stepFunction_ConvertToText",
+          "target": "transcribe"
+        }
+      },
+      {
+        "data": {
+          "id": "arn:aws:lambda:us-west-2:758325631830:function:stepFunction_getText-translate",
+          "source": "arn:aws:lambda:us-west-2:758325631830:function:stepFunction_getText",
+          "target": "translate"
+        }
+      },
+      {
+        "data": {
+          "source": "arn:aws:lambda:us-west-2:758325631830:function:stepFunction_createNewRequest",
+          "target": "arn:aws:lambda:us-west-2:758325631830:function:stepFunction_ConvertToText",
+          "id": "arn:aws:lambda:us-west-2:758325631830:function:stepFunction_createNewRequest-arn:aws:lambda:us-west-2:758325631830:function:stepFunction_ConvertToText"
+        }
+      },
+      {
+        "data": {
+          "source": "arn:aws:lambda:us-west-2:758325631830:function:stepFunction_ConvertToText",
+          "target": "arn:aws:lambda:us-west-2:758325631830:function:stepFunction_getText",
+          "id": "arn:aws:lambda:us-west-2:758325631830:function:stepFunction_ConvertToText-arn:aws:lambda:us-west-2:758325631830:function:stepFunction_getText"
+        }
+      }
+    ]
+  ]
+  
